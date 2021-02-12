@@ -50,7 +50,7 @@
 	branch = master
 [submodule "vendor/nim-chronos"]
 	path = vendor/nim-chronos
-	url = https://github.com/status-im/nim-chronos.git
+	url = https://github.com/michaelsbradleyjr/nim-chronos.git
 	ignore = dirty
 	branch = master
 [submodule "vendor/nim-json-serialization"]
