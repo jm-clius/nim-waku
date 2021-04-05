@@ -1,5 +1,5 @@
 import
-  std/[options, tables, strutils, sequtils],
+  std/[options, tables, strutils, sequtils, times],
   chronos, chronicles, metrics, stew/shims/net as stewNet,
   # TODO: Why do we need eth keys?
   eth/keys,
@@ -270,6 +270,9 @@ proc publish*(node: WakuNode, topic: Topic, message: WakuMessage,  rlnRelayEnabl
       ## TODO however, it might be better to change message type to mutable (i.e., var) so that we can add the proof field to the original message
       publishingMessage = WakuMessage(payload: message.payload, contentTopic: message.contentTopic, version: message.version, proof: proof)
 
+  # add timestamp
+  if (publishingMessage.timestamp == 0):
+    publishingMessage.timestamp = epochTime()
   let data = message.encode().buffer
 
   discard await wakuRelay.publish(topic, data)
