@@ -7,6 +7,7 @@
 
 
 import
+  std/times,
   libp2p/protobuf/minprotobuf
 
 type
@@ -43,3 +44,10 @@ proc encode*(message: WakuMessage): ProtoBuffer =
   result.write(3, message.version)
   result.write(4, message.proof)
   result.write(5, message.timestamp)
+
+proc newWakuMessage(payload:  seq[byte], contentTopic: ContentTopic, version: uint32, proof: seq[byte] = @[]): WakuMessage = 
+  ## creates a WakuMessage from the given arguments
+  ## it also attaches a Unix epoch timestamp to the message
+  var timestamp = epochTime()
+  result = WakuMessage(payload: payload, contentTopic: contentTopic, version: version, proof: proof, timestamp: timestamp)
+  
