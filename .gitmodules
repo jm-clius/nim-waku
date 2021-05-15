@@ -106,10 +106,6 @@
 [submodule "vendor/nim-web3"]
 	path = vendor/nim-web3
 	url = https://github.com/status-im/nim-web3.git
-[submodule "vendor/rln"]
-	path = vendor/rln
-	url = https://github.com/kilic/rln
-	branch = full-node
 [submodule "vendor/nim-testutils"]
 	path = vendor/nim-testutils
 	url = https://github.com/status-im/nim-testutils.git
@@ -120,3 +116,8 @@
 	url = https://github.com/status-im/nim-unittest2.git
 	ignore = untracked
 	branch = master
+[submodule "vendor/rln"]
+	path = vendor/rln
+	url = https://github.com/michaelsbradleyjr/rln.git
+	ignore = untracked
+	branch = full-node
