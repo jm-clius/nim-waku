@@ -12,6 +12,10 @@ This release contains the following:
 
 - The [toy-chat application](https://github.com/status-im/nim-waku/blob/master/docs/tutorial/chat2.md) can now perform `lightpush` and request content-filtered messages from remote peers.
 - The [toy-chat application](https://github.com/status-im/nim-waku/blob/master/docs/tutorial/chat2.md) now uses default content topic `/toy-chat/2/huilong/proto`
+- Improve `toy-chat` [briding to matterbridge]((https://github.com/status-im/nim-waku/blob/master/docs/tutorial/chat2.md#bridge-messages-between-chat2-and-matterbridge))
+- Improve [`swap`](https://rfc.vac.dev/spec/18/) logging and enable soft mode by default
+- Content topics are no longer in a redundant nested structure
+- Improve error handling
 
 #### API
 
@@ -21,6 +25,7 @@ This release contains the following:
 ### Fixes
 
 - Connections between nodes no longer become unstable due to keep-alive errors if mesh grows large
+- Re-enable `lightpush` tests and fix Windows CI failure
 
 The [Waku v2 suite of protocols](https://rfc.vac.dev/) are still in a raw/draft state.
 This release supports the following [libp2p protocols](https://docs.libp2p.io/concepts/protocols/):
